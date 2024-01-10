@@ -4,10 +4,9 @@ This will generate an m3u8 playlist and xmltv file for pluto TV.
 ## Configuring
 configuration is read from config.json in the current working directory
 
-### the output directory
+#### the output directory
 edit the config.json file to provide an output directory for the m3u8 and xml file
-
-### the client ID
+#### the client ID
 edit the config.json file and provide a new (unique) UUID
 
 ## Building
