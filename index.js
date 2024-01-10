@@ -5,10 +5,14 @@ const config = JSON.parse(fs.readFileSync('./config.json', 'utf-8'));
 (async function() {
 	const get = async (region) => {
 		const clientID = config.clientID || "00000000-0000-0000-0000-000000000000";
-		const us = '45.50.96.71';
-		const uk = '89.167.207.12';
 
-		const xff = region === 'us' ? us : uk;
+		const mapping = {
+			us: '45.50.96.71',
+			uk: '89.167.207.12',
+			sw: '83.145.40.200'
+		};
+
+		const xff = mapping[region] || '45.50.96.71'; // default to US IP addr
 
 		const bootData = await plutoapi.boot(xff, clientID);
 		const channels = await plutoapi.channels(xff);
@@ -23,4 +27,5 @@ const config = JSON.parse(fs.readFileSync('./config.json', 'utf-8'));
 
 	await get('us');
 	await get('uk');
+	await get('sw');
 })();
