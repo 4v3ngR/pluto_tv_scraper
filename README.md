@@ -8,6 +8,8 @@ configuration is read from config.json in the current working directory
 edit the config.json file to provide an output directory for the m3u8 and xml file
 #### the client ID
 edit the config.json file and provide a new (unique) UUID
+#### the regional mapping
+edit the config.json file and provide a region key and a geo located IP address to automatically generate an m3u8 and xml file for that region
 
 ## Building
 npm install
@@ -16,4 +18,5 @@ npm install
 node ./index.js
 
 ## Regional settings
-Pluto TV utilises geo location to determine what channels to load. By default, this script will load the UK and US regions. To change (or add other regions), edit the index.js and add an appropriate IP address.
+(moved to the Configuring section above)
+Pluto TV utilises geo location to determine what channels to load. By default, this script will load the UK and US regions. Edit the config.json to provide additional regions
