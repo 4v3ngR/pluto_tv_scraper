@@ -1,14 +1,34 @@
-const plutoapi = require('./lib/plutotv/api');
+const program = require('commander');
 const fs = require('fs');
-const config = JSON.parse(fs.readFileSync('./config.json', 'utf-8'));
-const mapping = config.mapping || { 'localhost': '127.0.0.1' };
+const plutoapi = require('./lib/plutotv/api');
+const utils = require('./lib/utils');
+
+const options = program
+	.option('--config <configfile>', 'provide the location to the configuration file')
+	.option('--mapping <region,IP>', 'provide a region and IP address to process instead of the mapping')
+  .option('--all', 'merge all regions into a single playlist and epg')
+	.option('-h --help', 'display the help')
+	.parse(process.argv)
+	.opts();
+
+if (options.help) {
+	utils.displayHelp();
+	process.exit(0);
+}
+
+const configFile = options.configfile || './config.json';
+const config = JSON.parse(fs.readFileSync(configFile, 'utf-8'));
+const mapping = utils.getMapping(options, config);
+
+const regionalPlaylists = {};
+const regionalEpgs = {};
 
 (async function() {
 	const get = async (region) => {
 		console.info("INFO: processing", region);
 		try {
 			const clientID = config.clientID || "00000000-0000-0000-0000-000000000000";
-			const xff = mapping[region] || '45.50.96.71'; // default to US IP addr
+			const xff = mapping[region] || '45.50.96.71';
 
 			const bootData = await plutoapi.boot(xff, clientID);
 			const channels = await plutoapi.channels(xff);
@@ -19,10 +39,20 @@ const mapping = config.mapping || { 'localhost': '127.0.0.1' };
 			const xmltv = await plutoapi.generateXMLTV(xff, region);
 			fs.writeFileSync(`${config.outdir}/plutotv_${region}.m3u8`, m3u8, 'utf-8');
 			fs.writeFileSync(`${config.outdir}/plutotv_${region}.xml`, xmltv, 'utf-8');
+
+			regionalPlaylists[region] = m3u8;
+			regionalEpgs[region] = xmltv;
 		} catch (ex) {
 			console.error("ERROR: got exception", ex.message);
 		}
 	}
 
 	for (const key of Object.keys(mapping)) await get(key);
+
+	if (options.all && Object.keys(mapping).length > 1) {
+		const m3u8 = utils.mergeM3U8(regionalPlaylists);
+		const xmltv = utils.mergeXMLTV(regionalEpgs);
+		fs.writeFileSync(`${config.outdir}/plutotv_all.m3u8`, m3u8, 'utf-8');
+		fs.writeFileSync(`${config.outdir}/plutotv_all.xml`, xmltv, 'utf-8');
+	}
 })();
