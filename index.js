@@ -8,6 +8,8 @@ const utils = require('./lib/utils');
 const options = program
 	.option('--config <configfile>', 'provide the location to the configuration file')
 	.option('--mapping <region,IP>', 'provide a region and IP address to process instead of the mapping')
+	.option('--outdir <outdir>', 'provide the destination directory')
+	.option('--clientid <clientid>', 'provide a client id')
   .option('--all', 'merge all regions into a single playlist and epg')
 	.option('-h --help', 'display the help')
 	.parse(process.argv)
@@ -18,8 +20,17 @@ if (options.help) {
 	process.exit(0);
 }
 
-const configFile = options.configfile || './config.json';
-const config = JSON.parse(fs.readFileSync(configFile, 'utf-8'));
+let config = {
+	outdir: options.outdir || '.',
+	clientID: options.clientid || '00000000-0000-0000-0000-000000000000'
+}
+
+try {
+	const configFile = options.configfile || './config.json';
+	const c = JSON.parse(fs.readFileSync(configFile, 'utf-8'));
+	config = c;
+} catch (ex) {}
+
 const mapping = utils.getMapping(options, config);
 
 const regionalPlaylists = {};
