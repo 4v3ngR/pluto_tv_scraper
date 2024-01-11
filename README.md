@@ -12,11 +12,24 @@ edit the config.json file and provide a new (unique) UUID
 edit the config.json file and provide a region key and a geo located IP address to automatically generate an m3u8 and xml file for that region
 
 ## Building
+``
 npm install
+```
+
+## Installation
+This can be installed globally using the following command:
+```
+npm install -g .
+```
+Installing will create a command called `plutotv-scraper` that can be executed on the command line
 
 ## Running
+```
 node ./index.js
+```
 
-## Regional settings
-(moved to the Configuring section above)
-Pluto TV utilises geo location to determine what channels to load. By default, this script will load the UK and US regions. Edit the config.json to provide additional regions
+OR (if installed globally)
+
+```
+plutotv-scraper --help
+```
