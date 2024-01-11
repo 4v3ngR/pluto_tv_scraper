@@ -26,7 +26,7 @@ let config = {
 }
 
 try {
-	const configFile = options.configfile || './config.json';
+	const configFile = options.config || './config.json';
 	const c = JSON.parse(fs.readFileSync(configFile, 'utf-8'));
 	config = c;
 } catch (ex) {}
