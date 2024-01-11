@@ -12,7 +12,7 @@ edit the config.json file and provide a new (unique) UUID
 edit the config.json file and provide a region key and a geo located IP address to automatically generate an m3u8 and xml file for that region
 
 ## Building
-``
+```
 npm install
 ```
 
