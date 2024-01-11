@@ -10,7 +10,7 @@ const options = program
 	.option('--mapping <region,IP>', 'provide a region and IP address to process instead of the mapping')
 	.option('--outdir <outdir>', 'provide the destination directory')
 	.option('--clientid <clientid>', 'provide a client id')
-  .option('--all', 'merge all regions into a single playlist and epg')
+	.option('--all', 'merge all regions into a single playlist and epg')
 	.option('-h --help', 'display the help')
 	.parse(process.argv)
 	.opts();
