@@ -33,3 +33,12 @@ OR (if installed globally)
 ```
 plutotv-scraper --help
 ```
+
+## Notes for Windows users
+- Download and install nodejs from https://nodejs.org/en/download/ and install it
+- Checkout the source code for for the pluto_tv_scraper
+- Open cmd.exe
+- cd to the pluto_tv_scraper directory
+- install the dependencies with `npm install`
+- run the script with `node ./index.js`
+- to get some help, run `node ./index.js --help`
