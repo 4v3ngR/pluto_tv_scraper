@@ -1,4 +1,4 @@
-# ptv_scraper
+# pluto_tv_scraper
 This will generate an m3u8 playlist and xmltv file for pluto TV.
 
 ## Configuring
