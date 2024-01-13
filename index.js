@@ -42,7 +42,7 @@ const regionalEpgs = {};
 	const get = async (region) => {
 		const group = options.group || config.group || "genre";
 		const regionalize = !!options.regionalize || !!config.regionalize;
-		const all = !!options.all || !!config.all;
+		const all = !!options.all || !!config.all || false;
 
 		console.info("INFO: processing", region);
 		try {
