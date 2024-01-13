@@ -11,6 +11,8 @@ const options = program
 	.option('--outdir <outdir>', 'provide the destination directory')
 	.option('--clientid <clientid>', 'provide a client id')
 	.option('--all', 'merge all regions into a single playlist and epg')
+	.option('--group [genre|country]', 'specify the grouping in the playlist')
+	.option('--regionalize', 'append the country code to the channel id')
 	.option('-h --help', 'display the help')
 	.parse(process.argv)
 	.opts();
@@ -48,8 +50,11 @@ const regionalEpgs = {};
 			const categories = await plutoapi.categories(xff);
 			const timelines = await plutoapi.timelines(xff);
 
-			const m3u8 = await plutoapi.generateM3U8(xff, region);
-			const xmltv = await plutoapi.generateXMLTV(xff, region);
+			const group = options.group || "genre";
+			const regionalize = !!options.regionalize;
+
+			const m3u8 = await plutoapi.generateM3U8(xff, region, group, regionalize);
+			const xmltv = await plutoapi.generateXMLTV(xff, region, regionalize);
 			fs.writeFileSync(`${config.outdir}/plutotv_${region}.m3u8`, m3u8, 'utf-8');
 			fs.writeFileSync(`${config.outdir}/plutotv_${region}.xml`, xmltv, 'utf-8');
 

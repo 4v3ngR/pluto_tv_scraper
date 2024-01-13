@@ -38,6 +38,19 @@ Note: if installed globally, there's no need to `cd` to the `pluto_tv_scraper` d
 plutotv-scraper --help
 ```
 
+### Commandline options:
+```
+  Options:
+    --config <configfile>   : Provide the location to the configuration file
+    --mapping <region,IP>   : Provide a region and IP address to process instead of the mapping
+    --outdir <outdir>       : Provide the destination directory
+    --clientid <clientid>   : Provide a client id
+    --all                   : Merge all regions into a single playlist and epg
+    --group [genre|country] : Specify the grouping within the playlist (default is "genre")
+    --regionalize           : append the country code to the channel id
+    --help                  : Display this help
+```
+
 ## Notes for Windows users
 - Download and install nodejs from https://nodejs.org/en/download/ and install it
 - Checkout the source code for for the pluto_tv_scraper
