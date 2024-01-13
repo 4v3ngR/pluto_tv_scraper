@@ -39,11 +39,11 @@ const regionalPlaylists = {};
 const regionalEpgs = {};
 
 (async function() {
-	const get = async (region) => {
-		const group = options.group || config.group || "genre";
-		const regionalize = !!options.regionalize || !!config.regionalize;
-		const all = !!options.all || !!config.all || false;
+	const group = options.group || config.group || "genre";
+	const regionalize = !!options.regionalize || !!config.regionalize;
+	const all = !!options.all || !!config.all || false;
 
+	const get = async (region) => {
 		console.info("INFO: processing", region);
 		try {
 			const clientID = config.clientID || "00000000-0000-0000-0000-000000000000";
