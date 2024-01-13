@@ -4,5 +4,8 @@
 	"mapping": {
 		"us": "45.50.96.71",
 		"uk": "89.167.207.12"
-	}
+	},
+	"all": false,
+	"group": "genre",
+	"regionalize": false
 }

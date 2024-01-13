@@ -40,6 +40,10 @@ const regionalEpgs = {};
 
 (async function() {
 	const get = async (region) => {
+		const group = options.group || config.group || "genre";
+		const regionalize = !!options.regionalize || !!config.regionalize;
+		const all = !!options.all || !!config.all;
+
 		console.info("INFO: processing", region);
 		try {
 			const clientID = config.clientID || "00000000-0000-0000-0000-000000000000";
@@ -49,9 +53,6 @@ const regionalEpgs = {};
 			const channels = await plutoapi.channels(xff);
 			const categories = await plutoapi.categories(xff);
 			const timelines = await plutoapi.timelines(xff);
-
-			const group = options.group || "genre";
-			const regionalize = !!options.regionalize;
 
 			const m3u8 = await plutoapi.generateM3U8(xff, region, group, regionalize);
 			const xmltv = await plutoapi.generateXMLTV(xff, region, regionalize);
@@ -67,7 +68,7 @@ const regionalEpgs = {};
 
 	for (const key of Object.keys(mapping)) await get(key);
 
-	if (options.all && Object.keys(mapping).length > 1) {
+	if (all && Object.keys(mapping).length > 1) {
 		const m3u8 = utils.mergeM3U8(regionalPlaylists);
 		const xmltv = utils.mergeXMLTV(regionalEpgs);
 		fs.writeFileSync(`${config.outdir}/plutotv_all.m3u8`, m3u8, 'utf-8');
