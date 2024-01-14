@@ -32,6 +32,7 @@ const config = require('./lib/config');
 	const regionalEpgs = {};
 
 	const group = config.get('group');
+	console.log("group", group); process.exit(0);
 	const regionalize = config.get('regionalize');
 	const all = config.get('all');
 	const outdir = config.get('outdir');
