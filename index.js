@@ -40,9 +40,6 @@ const config = require('./lib/config');
 		console.info("INFO: processing", region);
 		try {
 			const clientID = config.get('clientID');
-	console.log("clientID = ", clientID);
-	process.exit(0);
-
 			const xff = mapping[region];
 
 			const bootData = await plutoapi.boot(xff, clientID);
