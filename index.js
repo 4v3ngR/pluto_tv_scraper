@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 
-let semver = process.versions.node.split('.');
-if (semver[0] < 16) {
-	console.error("ERROR: nodejs is too old. Version 16 or greater is required.");
-	console.error(`ERROR: ${process.versions.node} installed`);
-	process.exit(1);
+const check = (minver) => {
+	let semver = process.versions.node.split('.');
+	if (semver[0] < minver) {
+		console.error(`ERROR: nodejs is too old. Version ${minver} or greater is required.`);
+		console.error(`ERROR: ${process.versions.node} installed`);
+		process.exit(1);
+	}
 }
+
+check(14);
 
 (async function() {
 	const fs = require('fs');
