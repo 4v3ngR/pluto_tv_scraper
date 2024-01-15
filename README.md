@@ -2,7 +2,7 @@
 This will generate an m3u8 playlist and xmltv file for pluto TV.
 
 ## Supported node versions
-Only node 20 and above, and npm 10 and above are supported. This script may run with other versions, but it may not
+Only node 16 and above is supported. This script may run with other versions, but it may not.
 
 ## Configuring
 configuration is read from config.json in the current working directory
