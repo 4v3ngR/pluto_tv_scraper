@@ -26,7 +26,7 @@ const config = require('./lib/config');
 
 	config.loadConfig(options);
 
-	const mapping = utils.getMapping(options, config);
+	const mapping = config.getMapping();
 
 	const regionalPlaylists = {};
 	const regionalEpgs = {};
