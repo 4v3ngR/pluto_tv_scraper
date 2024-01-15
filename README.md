@@ -17,7 +17,12 @@ Note: before running `npm install` you need to `cd` to the `pluto_tv_scraper` di
 npm install
 ```
 
-## Installation
+## Installation from npmjs
+```
+npm install -g plutotv-scraper
+```
+
+## Installation from source
 Note: before running `npm install -g .` you need to `cd` to the `pluto_tv_scraper` directory (the directory with this `README.md` file in it.
 This can be installed globally using the following command:
 ```
