@@ -46,15 +46,48 @@ plutotv-scraper --help
 ### Commandline options:
 ```
   Options:
-    --config <configfile>   : Provide the location to the configuration file
-    --mapping <region,IP>   : Provide a region and IP address to process instead of the mapping
-    --outdir <outdir>       : Provide the destination directory
-    --clientid <clientid>   : Provide a client id
-    --all                   : Merge all regions into a single playlist and epg
-    --group [genre|country] : Specify the grouping within the playlist (default is "genre")
-    --regionalize           : append the country code to the channel id
-    --help                  : Display this help
+    --config <configfile>    : Provide the location to the configuration file
+    --mapping <region,IP>    : Provide a region and IP address to process instead of the mapping
+    --outdir <outdir>        : Provide the destination directory
+    --clientid <clientid>    : Provide a client id
+    --all                    : Merge all regions into a single playlist and epg
+    --group [genre|country]  : Specify the grouping within the playlist (default is "genre")
+    --regionalize            : append the country code to the channel id
+    --exclude-groups <regex> : exclude the groups that match the regular expression
+    --help                   : Display this help
 ```
+
+### Regular expression exclusions of groups
+The `--exclude-groups` option utilizes regular expression matching to determine what groups should be excluded. Some examples of regular expressions:
+
+`Note: do take note of the single quotes, they're required to ensure the shell does not do any expansion of wildcards`
+
+#### Excluding a single group (exact matching)
+```
+--exclude-groups '^Local News$'
+```
+This regular expression will remove all the channels that are in the group 'Local News'.
+
+#### Excluding all groups with a word in it (partial matching)
+```
+--exclude-groups 'Español'
+```
+This regular expression will remove all the channels that are in groups with 'Español' in the name.
+
+#### Excluding multiple groups (exact matching)
+```
+--exclude-groups '^(Local News|En Español)$'
+```
+This regular expression will remove all the channels that are in the groups 'Local News' or 'En Español'.
+
+#### Excluding multiple groups (partital matching)
+```
+--exclude-groups '(News|Español)'
+```
+This regular expression will remove all the channels that are in groups with 'News' or 'Español' in the name.
+
+#### Further reading
+Mozilla developer documents provide good documentation on regular expressions in javascript. The document can be found here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions
 
 ## Notes for Windows users
 - Download and install nodejs from https://nodejs.org/en/download/ and install it
