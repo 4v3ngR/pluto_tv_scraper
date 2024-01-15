@@ -9,7 +9,7 @@ const check = (minver) => {
 	}
 }
 
-check(14);
+check(16);
 
 (async function() {
 	const fs = require('fs');
