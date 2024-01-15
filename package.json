@@ -1,6 +1,6 @@
 {
   "name": "plutotv-scraper",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "generate m2u8 playlists and xmltv format epgs for pluto tv",
   "main": "index.js",
   "directories": {
@@ -16,6 +16,10 @@
   "license": "ISC",
   "imports": {
     "#lib/*": "./lib/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/4v3ngR/pluto_tv_scraper"
   },
   "dependencies": {
     "axios": "^1.6.5",
