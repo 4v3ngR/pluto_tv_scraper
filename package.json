@@ -13,7 +13,7 @@
     "plutotv-scraper": "./index.js"
   },
   "author": "4v3ngR",
-  "license": "ISC",
+  "license": "MIT",
   "imports": {
     "#lib/*": "./lib/*"
   },
