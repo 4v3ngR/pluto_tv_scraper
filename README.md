@@ -69,25 +69,25 @@ The `--exclude-groups` option utilizes regular expression matching to determine 
 
 #### Excluding a single group (exact matching)
 ```
---exclude-groups '^Local News$'
+--exclude-groups "^Local News$"
 ```
 This regular expression will remove all the channels that are in the group 'Local News'.
 
 #### Excluding all groups with a word in it (partial matching)
 ```
---exclude-groups 'Español'
+--exclude-groups "Español"
 ```
 This regular expression will remove all the channels that are in groups with 'Español' in the name.
 
 #### Excluding multiple groups (exact matching)
 ```
---exclude-groups '^(Local News|En Español)$'
+--exclude-groups "^(Local News|En Español)$"
 ```
 This regular expression will remove all the channels that are in the groups 'Local News' or 'En Español'.
 
 #### Excluding multiple groups (partital matching)
 ```
---exclude-groups '(News|Español)'
+--exclude-groups "(News|Español)"
 ```
 This regular expression will remove all the channels that are in groups with 'News' or 'Español' in the name.
 
@@ -102,3 +102,6 @@ Mozilla developer documents provide good documentation on regular expressions in
 - install the dependencies with `npm install`
 - run the script with `node ./index.js`
 - to get some help, run `node ./index.js --help`
+
+#### Pipes in regular expressions in Windows
+It appears that command.exe does not utilise single quotes as "a single argument". As such, regular expressions must be enclosed in double quotes ("). This is especially true if the regular expresion conains the PIPE (|).
