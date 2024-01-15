@@ -49,16 +49,17 @@ plutotv-scraper --help
 ### Commandline options:
 ```
   Options:
-    --config <configfile>    : Provide the location to the configuration file
-    --mapping <region,IP>    : Provide a region and IP address to process instead of the mapping
-    --outdir <outdir>        : Provide the destination directory
-    --clientid <clientid>    : Provide a client id
-    --all                    : Merge all regions into a single playlist and epg
-    --chno <num>             : Start channel numbering at the provided value, spans multiple regions
-    --group [genre|country]  : Specify the grouping within the playlist (default is "genre")
-    --regionalize            : append the country code to the channel id
-    --exclude-groups <regex> : exclude the groups that match the regular expression
-    --help                   : Display this help
+    --config <configfile>      : Provide the location to the configuration file
+    --mapping <region,IP>      : Provide a region and IP address to process instead of the mapping
+    --outdir <outdir>          : Provide the destination directory
+    --clientid <clientid>      : Provide a client id
+    --all                      : Merge all regions into a single playlist and epg
+    --chno <num>               : Start channel numbering at the provided value, spans all regions
+    --group [genre|country]    : Specify the grouping within the playlist (default is "genre")
+    --regionalize              : append the country code to the channel id
+    --exclude-groups <regex>   : exclude the groups that match the regular expression
+    --exclude-channels <regex> : exclude the channels that match the regular expression
+    --help                     : Display this help
 ```
 
 ### Regular expression exclusions of groups
