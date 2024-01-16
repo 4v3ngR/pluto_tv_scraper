@@ -15,7 +15,13 @@ check(16);
 	const fs = require('fs');
 	const config = require('./lib/config');
 	const plutotv = require('./lib/plutotv');
+	const server = require('./lib/server');
 
 	config.loadConfig();
-	await plutotv.process(config);
+
+	if (config.get('port')) {
+		server.serve(config);
+	} else {
+		await plutotv.process(config);
+	}
 })();
