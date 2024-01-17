@@ -19,7 +19,17 @@ check(16);
 
 	config.loadConfig();
 
-	if (config.get('port')) {
+	const port = config.get('port');
+	const refresh = config.get('refresh');
+	if (refresh && refresh < 3600) {
+		console.error("ERROR: please set refresh interval to be at least 3600 seconds");
+		process.exit(1);
+	}
+
+	if (port && refresh) {
+		setInterval(() => plutotv.process(config), refresh * 1000);
+		server.serve(config);
+	} else if (port) {
 		server.serve(config);
 	} else {
 		await plutotv.process(config);
