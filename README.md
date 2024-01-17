@@ -45,6 +45,25 @@ Note: if installed globally, there's no need to `cd` to the `pluto_tv_scraper` d
 ```
 plutotv-scraper --help
 ```
+### Commandline options:
+```
+  Options:
+    --config <configfile>      : Provide the location to the configuration file
+    --mapping <region,IP>      : Provide a region and IP address to process instead of the mapping
+    --outdir <outdir>          : Provide the destination directory
+    --clientid <clientid>      : Provide a client id
+    --all                      : Merge all regions into a single playlist and epg
+    --chno <num>               : Start channel numbering at the provided value, spans all regions
+    --group [genre|country]    : Specify the grouping within the playlist (default is "genre")
+    --regionalize              : Append the country code to the channel id
+    --exclude-groups <regex>   : Exclude the groups that match the regular expression
+    --exclude-channels <regex> : Exclude the channels that match the regular expression
+    --port <num>               : Start a small web server to serve the generated files
+    --refresh <seconds>        : Automatically refetch the files at the provided interval
+    --unique-client-id         : Generate a unique id for each client requesting the playlist via
+                                 the inbuilt server
+    --help                     : Display this help
+```
 
 ## Serving up the files
 There is now a feature where the generate files can be served up using a built in web server. The web server mode is invoked by providing the `--port <num>` commandline option. Note that in this mode, the files are not generated.
@@ -62,22 +81,10 @@ The server mode should be invoked with:
 node ./index.js --config /some/config.json --port 8080
 ```
 
-### Commandline options:
-```
-  Options:
-    --config <configfile>      : Provide the location to the configuration file
-    --mapping <region,IP>      : Provide a region and IP address to process instead of the mapping
-    --outdir <outdir>          : Provide the destination directory
-    --clientid <clientid>      : Provide a client id
-    --all                      : Merge all regions into a single playlist and epg
-    --chno <num>               : Start channel numbering at the provided value, spans all regions
-    --group [genre|country]    : Specify the grouping within the playlist (default is "genre")
-    --regionalize              : Append the country code to the channel id
-    --exclude-groups <regex>   : Exclude the groups that match the regular expression
-    --exclude-channels <regex> : Exclude the channels that match the regular expression
-    --port <num>               : Start a small web server to serve the generated files
-    --help                     : Display this help
-```
+### More options for server mode
+The server mode can do two other things:
+- The first is the `--unique-client-id` option to generate a new clientID (based on the callers IP address) to ensure multiple clients have different client IDs.
+- The second is the `--refresh <seconds>` option, which will refecth the playlists and xml files the files at (at least) one hour intervals
 
 ### Regular expression exclusions of groups
 The `--exclude-groups` option utilizes regular expression matching to determine what groups should be excluded. Some examples of regular expressions:
