@@ -66,6 +66,9 @@ plutotv-scraper --help
     --help                     : Display this help
 ```
 
+Note:
+- if the url provided to `--x-tvg-url` ends with a `/`, the corresponding xml filename will be appended.
+
 ## Serving up the files
 There is now a feature where the generate files can be served up using a built in web server. The web server mode is invoked by providing the `--port <num>` commandline option. Note that in this mode, the files are not generated.
 
