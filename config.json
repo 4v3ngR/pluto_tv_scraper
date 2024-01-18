@@ -2,10 +2,15 @@
 	"outdir": ".",
 	"clientID": "00000000-0000-0000-0000-000000000000",
 	"mapping": {
-		"us": "45.50.96.71",
-		"uk": "89.167.207.12"
+		"us": "45.50.96.71"
 	},
 	"all": false,
 	"group": "genre",
-	"regionalize": false
+	"regionalize": false,
+	"excludeGroups": false,
+	"excludeChannels": false,
+	"uniqueClientid": false,
+	"randomClientid": false,
+	"refresh": 0,
+	"xTvgUrl": false
 }
