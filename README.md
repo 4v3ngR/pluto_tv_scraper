@@ -62,6 +62,7 @@ plutotv-scraper --help
     --refresh <seconds>        : Automatically refetch the files at the provided interval
     --unique-client-id         : Generate a unique id for each client requesting the playlist via
                                  the inbuilt server
+    --x-tvg-url <url>          : Specify a custom x-tvg-url value in the EXTM3U header
     --help                     : Display this help
 ```
 
