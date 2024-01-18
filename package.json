@@ -1,6 +1,6 @@
 {
   "name": "plutotv-scraper",
-  "version": "1.1.15",
+  "version": "1.1.16",
   "description": "generate m2u8 playlists and xmltv format epgs for pluto tv",
   "main": "index.js",
   "directories": {
