@@ -60,9 +60,9 @@ plutotv-scraper --help
     --exclude-channels <regex> : Exclude the channels that match the regular expression
     --port <num>               : Start a small web server to serve the generated files
     --refresh <seconds>        : Automatically refetch the files at the provided interval
-    --unique-client-id         : Generate a unique id for each client requesting the playlist via
+    --unique-clientid          : Generate a unique id for each client requesting the playlist via
                                  the inbuilt server
-    --random-client-id         : Generate a random id for each request of the playlist via the
+    --random-clientid          : Generate a random id for each request of the playlist via the
                                  inbuilt server
     --x-tvg-url <url>          : Specify a custom x-tvg-url value in the EXTM3U header
     --help                     : Display this help
@@ -89,7 +89,7 @@ node ./index.js --config /some/config.json --port 8080
 
 ### More options for server mode
 The server mode can do two other things:
-- The first is the `--unique-client-id` option to generate a new clientID (based on the callers IP address) to ensure multiple clients have different client IDs.
+- The first is the `--unique-clientid` option to generate a new clientID (based on the callers IP address) to ensure multiple clients have different client IDs.
 - The second is the `--refresh <seconds>` option, which will refecth the playlists and xml files the files at (at least) one hour intervals
 
 ### Regular expression exclusions of groups
