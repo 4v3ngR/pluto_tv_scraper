@@ -4,6 +4,9 @@ This will generate an m3u8 playlist and xmltv file for pluto TV.
 ## Supported node versions
 Only node 16 and above is supported. This script may run with other versions, but it may not.
 
+## Docker support
+If you'd like to use this within a docker image, head over to David Claeys' repo here: https://git.claeyscloud.com/david/pluto_tv_scraper-docker
+
 ## Configuring
 configuration is read from config.json in the current working directory
 
