@@ -14,5 +14,6 @@
 	"refresh": 0,
 	"xTvgUrl": false,
 	"ondemand": false,
-	"vlcopts": false
+	"vlcopts": false,
+	"pipeopts": false
 }

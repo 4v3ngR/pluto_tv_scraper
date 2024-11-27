@@ -28,6 +28,9 @@ npm install
 npm install -g plutotv-scraper
 ```
 
+## Docker support
+If you'd like to use this within a docker image, head over to David Claeys' repo here: https://git.claeyscloud.com/david/pluto_tv_scraper-docker
+
 ## Installation from source
 Note: before running `npm install -g .` you need to `cd` to the `pluto_tv_scraper` directory (the directory with this `README.md` file in it.
 This can be installed globally using the following command:
@@ -70,12 +73,17 @@ plutotv-scraper --help
     --x-tvg-url <url>          : Specify a custom x-tvg-url value in the EXTM3U header
     --ondemand                 : Generate a playlist and xml for ondemand movies
     --vlcopts                  : Includes the VLCOPTS m3u8 entries
+    --pipeopts                 : Includes the piped headers in the m3u8 urls
 
     --help                     : Display this help
 ```
 
 Note:
 - if the url provided to `--x-tvg-url` ends with a `/`, the corresponding xml filename will be appended.
+- the first run to capture the ondemand data is slow, the data is cached so subsequent runs are quicker. We don't want to DoS pluto TV, nor do we want to be detected.
+- vlcopts will add referrer and user agent EXTVLCOPTS
+- pipeopts will add x-forwarded-for and user agent headers in the stream urls
+- if both vlcopts and pipeopts is provided, only vlcopts is used
 
 ## Serving up the files
 There is now a feature where the generate files can be served up using a built in web server. The web server mode is invoked by providing the `--port <num>` commandline option. Note that in this mode, the files are not generated.
