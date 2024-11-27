@@ -12,5 +12,7 @@
 	"uniqueClientid": false,
 	"randomClientid": false,
 	"refresh": 0,
-	"xTvgUrl": false
+	"xTvgUrl": false,
+	"ondemand": false,
+	"vlcopts": false
 }

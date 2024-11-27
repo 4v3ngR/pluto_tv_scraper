@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+process.title = "plutotv scraper";
+
 const check = (minver) => {
 	let semver = process.versions.node.split('.');
 	if (semver[0] < minver) {

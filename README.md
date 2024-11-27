@@ -68,6 +68,9 @@ plutotv-scraper --help
     --random-clientid          : Generate a random id for each request of the playlist via the
                                  inbuilt server
     --x-tvg-url <url>          : Specify a custom x-tvg-url value in the EXTM3U header
+    --ondemand                 : Generate a playlist and xml for ondemand movies
+    --vlcopts                  : Includes the VLCOPTS m3u8 entries
+
     --help                     : Display this help
 ```
 
