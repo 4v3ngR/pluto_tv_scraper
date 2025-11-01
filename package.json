@@ -7,6 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
+    "generate": "node ./index.js",
+    "serve": "node ./index.js --port 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {

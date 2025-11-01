@@ -1,0 +1,4 @@
+node_modules
+
+*.m3u8
+*.xml
