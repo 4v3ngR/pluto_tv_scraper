@@ -1,7 +1,7 @@
 # pluto_tv_scraper
 This will generate an m3u8 playlist and xmltv file for pluto TV.
 
-# DANGER WILL ROBBINSON!!!
+# DANGER, WILL ROBINSON!!!
 Pluto TV has shut down their v1 streams. Their v2 streams require authentication. The scraper has been updated to produce an m3u8 playlist with the required jwt, but the hardcoded jwt will expire in 24 hours after generation.
 
 In order to get a fresh jwt, the built in web server must be used (see below how to run the server).
